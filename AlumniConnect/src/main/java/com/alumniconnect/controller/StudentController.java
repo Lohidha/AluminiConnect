@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import com.alumniconnect.entity.LoginRequest;
 import com.alumniconnect.entity.Student;
 import com.alumniconnect.service.StudentService;
 
@@ -40,6 +41,13 @@ public class StudentController {
     @GetMapping("/getall")
     public List<Student> getAllStudents() {
         return studentService.getAllStudents();
+    }
+    @PostMapping("/login")
+    public Student login(@RequestBody LoginRequest loginRequest) {
+
+        return studentService.login(
+                loginRequest.getEmail(),
+                loginRequest.getPassword());
     }
 
 }

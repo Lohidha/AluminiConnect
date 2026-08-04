@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import com.alumniconnect.entity.Alumni;
+import com.alumniconnect.entity.LoginRequest;
+import com.alumniconnect.repository.AlumniRepository;
 import com.alumniconnect.service.AlumniService;
 
 @RestController
@@ -42,4 +44,11 @@ public class AlumniController {
         return alumniService.getAllAlumni();
     }
 
+    @PostMapping("/login")
+    public Alumni login(@RequestBody LoginRequest loginRequest) {
+
+        return alumniService.login(
+                loginRequest.getEmail(),
+                loginRequest.getPassword());
+    }
 }

@@ -49,4 +49,19 @@ public class StudentServiceImpl implements StudentService {
     public Student getStudentByEmail(String email) {
         return studentRepository.findByEmail(email);
     }
+    @Override
+    public Student login(String email, String password) {
+
+        Student student = studentRepository.findByEmail(email);
+
+        if(student == null) {
+            throw new RuntimeException("Invalid Email");
+        }
+
+        if(!student.getPassword().equals(password)) {
+            throw new RuntimeException("Invalid Password");
+        }
+
+        return student;
+    }
 }

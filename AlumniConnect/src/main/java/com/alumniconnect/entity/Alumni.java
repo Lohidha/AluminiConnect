@@ -52,6 +52,9 @@ public class Alumni {
 
     @Column(name = "AVAILABLE_FOR_MENTORSHIP")
     private String availableForMentorship;
+    
+    public Alumni() {
+    }
 
     
     public Alumni(Integer alumniId, String registerNo, String name, String email, String mobile, String department,

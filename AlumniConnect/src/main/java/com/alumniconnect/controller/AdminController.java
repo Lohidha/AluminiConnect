@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import com.alumniconnect.entity.Admin;
+import com.alumniconnect.entity.LoginRequest;
 import com.alumniconnect.service.AdminService;
 
 @RestController
@@ -40,6 +41,13 @@ public class AdminController {
     @GetMapping("/getall")
     public List<Admin> getAllAdmins() {
         return adminService.getAllAdmins();
+    }
+    @PostMapping("/login")
+    public Admin login(@RequestBody LoginRequest loginRequest) {
+
+        return adminService.login(
+                loginRequest.getEmail(),
+                loginRequest.getPassword());
     }
 
 }
