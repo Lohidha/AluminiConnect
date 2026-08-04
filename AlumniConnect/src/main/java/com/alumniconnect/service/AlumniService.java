@@ -17,5 +17,6 @@ public interface AlumniService {
     List<Alumni> getAllAlumni();
 
     Alumni getAlumniByEmail(String email);
+    Alumni login(String email, String password);
 
 }

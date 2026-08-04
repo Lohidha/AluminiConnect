@@ -50,4 +50,19 @@ public class AlumniServiceImpl implements AlumniService {
     public Alumni getAlumniByEmail(String email) {
         return alumniRepository.findByEmail(email);
     }
+    @Override
+    public Alumni login(String email, String password) {
+
+        Alumni alumni = alumniRepository.findByEmail(email);
+
+        if(alumni == null) {
+            throw new RuntimeException("Invalid Email");
+        }
+
+        if(!alumni.getPassword().equals(password)) {
+            throw new RuntimeException("Invalid Password");
+        }
+
+        return alumni;
+    }
 }

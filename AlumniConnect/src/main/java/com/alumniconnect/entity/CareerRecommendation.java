@@ -26,6 +26,8 @@ public class CareerRecommendation {
 
     @Column(name = "MATCH_PERCENTAGE")
     private Double matchPercentage;
+    public CareerRecommendation() {
+    }
 
 	public CareerRecommendation(int careerId, Student student, String recommendedRole, String company,
 			String requiredSkills, Double matchPercentage) {

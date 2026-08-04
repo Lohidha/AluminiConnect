@@ -16,5 +16,6 @@ public interface StudentService {
 
     List<Student> getAllStudents();
     Student getStudentByEmail(String email);
+    Student login(String email, String password);
 
 }

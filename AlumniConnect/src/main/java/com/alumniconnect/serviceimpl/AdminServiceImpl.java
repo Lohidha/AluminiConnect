@@ -49,5 +49,20 @@ public class AdminServiceImpl implements AdminService {
     public Admin getAdminByEmail(String email) {
         return adminRepository.findByEmail(email);
     }
+    @Override
+    public Admin login(String email, String password) {
+
+        Admin admin = adminRepository.findByEmail(email);
+
+        if(admin == null) {
+            throw new RuntimeException("Invalid Email");
+        }
+
+        if(!admin.getPassword().equals(password)) {
+            throw new RuntimeException("Invalid Password");
+        }
+
+        return admin;
+    }
 
 }
