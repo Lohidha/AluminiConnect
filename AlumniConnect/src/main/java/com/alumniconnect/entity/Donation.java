@@ -1,17 +1,11 @@
 package com.alumniconnect.entity;
 
-import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 import java.time.LocalDate;
+
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "DONATION")
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
 public class Donation {
 
     @Id
@@ -35,4 +29,75 @@ public class Donation {
 
     @Column(name = "PAYMENT_STATUS")
     private String paymentStatus;
+
+    public Donation() {
+    }
+
+    public Donation(Long donationId, Fundraising fundraising, Alumni alumni,
+                    Double amount, LocalDate donationDate, String paymentStatus) {
+        this.donationId = donationId;
+        this.fundraising = fundraising;
+        this.alumni = alumni;
+        this.amount = amount;
+        this.donationDate = donationDate;
+        this.paymentStatus = paymentStatus;
+    }
+
+    public Long getDonationId() {
+        return donationId;
+    }
+
+    public void setDonationId(Long donationId) {
+        this.donationId = donationId;
+    }
+
+    public Fundraising getFundraising() {
+        return fundraising;
+    }
+
+    public void setFundraising(Fundraising fundraising) {
+        this.fundraising = fundraising;
+    }
+
+    public Alumni getAlumni() {
+        return alumni;
+    }
+
+    public void setAlumni(Alumni alumni) {
+        this.alumni = alumni;
+    }
+
+    public Double getAmount() {
+        return amount;
+    }
+
+    public void setAmount(Double amount) {
+        this.amount = amount;
+    }
+
+    public LocalDate getDonationDate() {
+        return donationDate;
+    }
+
+    public void setDonationDate(LocalDate donationDate) {
+        this.donationDate = donationDate;
+    }
+
+    public String getPaymentStatus() {
+        return paymentStatus;
+    }
+
+    public void setPaymentStatus(String paymentStatus) {
+        this.paymentStatus = paymentStatus;
+    }
+
+    @Override
+    public String toString() {
+        return "Donation [donationId=" + donationId +
+                ", fundraising=" + fundraising +
+                ", alumni=" + alumni +
+                ", amount=" + amount +
+                ", donationDate=" + donationDate +
+                ", paymentStatus=" + paymentStatus + "]";
+    }
 }

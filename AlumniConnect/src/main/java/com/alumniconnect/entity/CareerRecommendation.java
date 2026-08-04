@@ -30,9 +30,8 @@ public class CareerRecommendation {
     public CareerRecommendation() {
     }
 
-    public CareerRecommendation(Integer careerId, Student student,
-                                String recommendedRole, String company,
-                                String requiredSkills, Double matchPercentage) {
+    public CareerRecommendation(Integer careerId, Student student, String recommendedRole,
+                                String company, String requiredSkills, Double matchPercentage) {
         this.careerId = careerId;
         this.student = student;
         this.recommendedRole = recommendedRole;
@@ -87,5 +86,15 @@ public class CareerRecommendation {
 
     public void setMatchPercentage(Double matchPercentage) {
         this.matchPercentage = matchPercentage;
+    }
+
+    @Override
+    public String toString() {
+        return "CareerRecommendation [careerId=" + careerId +
+                ", student=" + student +
+                ", recommendedRole=" + recommendedRole +
+                ", company=" + company +
+                ", requiredSkills=" + requiredSkills +
+                ", matchPercentage=" + matchPercentage + "]";
     }
 }
