@@ -5,17 +5,12 @@ import lombok.*;
 
 @Entity
 @Table(name = "ALUMNI")
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
-@ToString
 public class Alumni {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ALUMNI_ID")
-    private Integer alumniId;
+    private int alumniId;
 
     @Column(name = "REGISTER_NO", nullable = false, unique = true)
     private String registerNo;
@@ -59,10 +54,115 @@ public class Alumni {
     @Column(name = "AVAILABLE_FOR_MENTORSHIP")
     private String availableForMentorship;
     
-    public String getPassword() {
+    public Alumni(int alumniId, String registerNo, String name, String email, String mobile, String department,
+			String batch, String currentCompany, String designation, Integer experience, String location, String skills,
+			String linkedin, String password, String availableForMentorship) {
+		super();
+		this.alumniId = alumniId;
+		this.registerNo = registerNo;
+		this.name = name;
+		this.email = email;
+		this.mobile = mobile;
+		this.department = department;
+		this.batch = batch;
+		this.currentCompany = currentCompany;
+		this.designation = designation;
+		this.experience = experience;
+		this.location = location;
+		this.skills = skills;
+		this.linkedin = linkedin;
+		this.password = password;
+		this.availableForMentorship = availableForMentorship;
+	}
+	public String getPassword() {
         return password;
     }
     public String getEmail() {
         return email;
     }
+	public int getAlumniId() {
+		return alumniId;
+	}
+	public void setAlumniId(int alumniId) {
+		this.alumniId = alumniId;
+	}
+	public String getRegisterNo() {
+		return registerNo;
+	}
+	public void setRegisterNo(String registerNo) {
+		this.registerNo = registerNo;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getMobile() {
+		return mobile;
+	}
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
+	}
+	public String getDepartment() {
+		return department;
+	}
+	public void setDepartment(String department) {
+		this.department = department;
+	}
+	public String getBatch() {
+		return batch;
+	}
+	public void setBatch(String batch) {
+		this.batch = batch;
+	}
+	public String getCurrentCompany() {
+		return currentCompany;
+	}
+	public void setCurrentCompany(String currentCompany) {
+		this.currentCompany = currentCompany;
+	}
+	public String getDesignation() {
+		return designation;
+	}
+	public void setDesignation(String designation) {
+		this.designation = designation;
+	}
+	public int getExperience() {
+		return experience;
+	}
+	public void setExperience(int experience) {
+		this.experience = experience;
+	}
+	public String getLocation() {
+		return location;
+	}
+	public void setLocation(String location) {
+		this.location = location;
+	}
+	public String getSkills() {
+		return skills;
+	}
+	public void setSkills(String skills) {
+		this.skills = skills;
+	}
+	public String getLinkedin() {
+		return linkedin;
+	}
+	public void setLinkedin(String linkedin) {
+		this.linkedin = linkedin;
+	}
+	public String getAvailableForMentorship() {
+		return availableForMentorship;
+	}
+	public void setAvailableForMentorship(String availableForMentorship) {
+		this.availableForMentorship = availableForMentorship;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+    
 }

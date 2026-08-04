@@ -9,7 +9,7 @@ public class Admin {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ADMIN_ID")
-    private Integer adminId;
+    private int adminId;
 
     @Column(name = "EMPLOYEE_ID", nullable = false, unique = true)
     private String employeeId;
@@ -41,7 +41,7 @@ public class Admin {
     public Admin() {
     }
 
-    public Admin(Integer adminId, String employeeId, String name, String email,
+    public Admin(int adminId, String employeeId, String name, String email,
                  String mobile, String designation, String department,
                  String role, String password, String profilePhoto) {
         this.adminId = adminId;
@@ -56,11 +56,11 @@ public class Admin {
         this.profilePhoto = profilePhoto;
     }
 
-    public Integer getAdminId() {
+    public int getAdminId() {
         return adminId;
     }
 
-    public void setAdminId(Integer adminId) {
+    public void setAdminId(int adminId) {
         this.adminId = adminId;
     }
 
