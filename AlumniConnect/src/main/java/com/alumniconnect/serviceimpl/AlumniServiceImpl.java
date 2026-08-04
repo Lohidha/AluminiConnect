@@ -46,4 +46,8 @@ public class AlumniServiceImpl implements AlumniService {
         return alumniRepository.findAll();
     }
 
+    @Override
+    public Alumni getAlumniByEmail(String email) {
+        return alumniRepository.findByEmail(email);
+    }
 }

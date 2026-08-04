@@ -58,4 +58,11 @@ public class Alumni {
 
     @Column(name = "AVAILABLE_FOR_MENTORSHIP")
     private String availableForMentorship;
+    
+    public String getPassword() {
+        return password;
+    }
+    public String getEmail() {
+        return email;
+    }
 }

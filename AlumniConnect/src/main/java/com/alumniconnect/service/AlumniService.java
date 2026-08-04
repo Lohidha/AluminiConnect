@@ -2,7 +2,6 @@ package com.alumniconnect.service;
 
 import java.util.List;
 
-
 import com.alumniconnect.entity.Alumni;
 
 public interface AlumniService {
@@ -16,4 +15,7 @@ public interface AlumniService {
     Alumni getAlumniById(int alumniId);
 
     List<Alumni> getAllAlumni();
+
+    Alumni getAlumniByEmail(String email);
+
 }

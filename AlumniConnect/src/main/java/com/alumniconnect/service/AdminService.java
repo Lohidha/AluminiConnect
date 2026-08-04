@@ -16,4 +16,6 @@ public interface AdminService {
 
     List<Admin> getAllAdmins();
 
+    Admin getAdminByEmail(String email);
+
 }
