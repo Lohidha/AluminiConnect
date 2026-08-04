@@ -28,7 +28,11 @@ public class AlumniServiceImpl implements AlumniService {
 
     @Override
     public void deleteAlumni(int alumniId) {
-        alumniRepository.deleteById(alumniId);
+
+        Alumni alumni = alumniRepository.findById(alumniId)
+                .orElseThrow(() -> new ResourceNotFoundException("Alumni not found"));
+
+        alumniRepository.delete(alumni);
     }
 
     @Override
