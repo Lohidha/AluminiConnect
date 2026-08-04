@@ -30,8 +30,16 @@ public class AuthController {
         return studentService.addStudent(student);
     }
 
+	/*
+	 * @PostMapping("/alumni/register") public Alumni registerAlumni(@RequestBody
+	 * Alumni alumni) { return alumniService.addAlumni(alumni); }
+	 */
     @PostMapping("/alumni/register")
     public Alumni registerAlumni(@RequestBody Alumni alumni) {
+
+        System.out.println(alumni.getName());
+        System.out.println(alumni.getEmail());
+
         return alumniService.addAlumni(alumni);
     }
 

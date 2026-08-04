@@ -10,7 +10,7 @@ public class EventRegistration {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "REGISTRATION_ID")
-    private Integer registrationId;
+    private int registrationId;
 
     @ManyToOne
     @JoinColumn(name = "EVENT_ID")
@@ -34,7 +34,7 @@ public class EventRegistration {
     public EventRegistration() {
     }
 
-    public EventRegistration(Integer registrationId, Event event, Student student,
+    public EventRegistration(int registrationId, Event event, Student student,
                              Alumni alumni, Date registrationDate,
                              String attendanceStatus) {
         this.registrationId = registrationId;
@@ -45,11 +45,11 @@ public class EventRegistration {
         this.attendanceStatus = attendanceStatus;
     }
 
-    public Integer getRegistrationId() {
+    public int getRegistrationId() {
         return registrationId;
     }
 
-    public void setRegistrationId(Integer registrationId) {
+    public void setRegistrationId(int registrationId) {
         this.registrationId = registrationId;
     }
 
