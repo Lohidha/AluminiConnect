@@ -26,12 +26,12 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public void deleteStudent(Integer studentId) {
+    public void deleteStudent(int studentId) {
         studentRepository.deleteById(studentId);
     }
 
     @Override
-    public Student getStudentById(Integer studentId) {
+    public Student getStudentById(int studentId) {
         return studentRepository.findById(studentId).orElse(null);
     }
 

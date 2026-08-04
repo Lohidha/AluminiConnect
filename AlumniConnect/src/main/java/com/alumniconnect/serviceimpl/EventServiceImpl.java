@@ -26,12 +26,12 @@ public class EventServiceImpl implements EventService {
     }
 
     @Override
-    public void deleteEvent(Integer eventId) {
+    public void deleteEvent(int eventId) {
         eventRepository.deleteById(eventId);
     }
 
     @Override
-    public Event getEventById(Integer eventId) {
+    public Event getEventById(int eventId) {
         return eventRepository.findById(eventId).orElse(null);
     }
 

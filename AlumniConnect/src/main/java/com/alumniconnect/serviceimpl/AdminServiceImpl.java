@@ -26,12 +26,12 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
-    public void deleteAdmin(Integer adminId) {
+    public void deleteAdmin(int adminId) {
         adminRepository.deleteById(adminId);
     }
 
     @Override
-    public Admin getAdminById(Integer adminId) {
+    public Admin getAdminById(int  adminId) {
         return adminRepository.findById(adminId).orElse(null);
     }
 
@@ -39,4 +39,5 @@ public class AdminServiceImpl implements AdminService {
     public List<Admin> getAllAdmins() {
         return adminRepository.findAll();
     }
+
 }

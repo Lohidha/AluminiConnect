@@ -6,14 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.alumniconnect.entity.MentorshipRequest;
-import com.alumniconnect.repository.MentorshipRepository;
+import com.alumniconnect.repository.MentorshipRequestRepository;
 import com.alumniconnect.service.MentorshipService;
 
 @Service
 public class MentorshipServiceImpl implements MentorshipService {
 
     @Autowired
-    private MentorshipRepository mentorshipRepository;
+    private MentorshipRequestRepository mentorshipRepository;
 
     @Override
     public MentorshipRequest addMentorship(MentorshipRequest mentorship) {

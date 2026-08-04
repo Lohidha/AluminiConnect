@@ -29,13 +29,13 @@ public class CareerRecommendationServiceImpl implements CareerRecommendationServ
 
 
     @Override
-    public void deleteRecommendation(Integer careerId) {
+    public void deleteRecommendation(int careerId) {
         careerRecommendationRepository.deleteById(careerId);
     }
 
 
     @Override
-    public CareerRecommendation getRecommendationById(Integer careerId) {
+    public CareerRecommendation getRecommendationById(int careerId) {
         return careerRecommendationRepository.findById(careerId).orElse(null);
     }
 
