@@ -10,9 +10,9 @@ public interface NotificationService {
 
     Notification updateNotification(Notification notification);
 
-    void deleteNotification(Integer notificationId);
+    void deleteNotification(int notificationId);
 
-    Notification getNotificationById(Integer notificationId);
+    Notification getNotificationById(int notificationId);
 
     List<Notification> getAllNotifications();
 
