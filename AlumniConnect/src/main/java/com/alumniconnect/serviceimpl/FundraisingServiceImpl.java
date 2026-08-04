@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.alumniconnect.entity.Fundraising;
+import com.alumniconnect.exception.ResourceNotFoundException;
 import com.alumniconnect.repository.FundraisingRepository;
 import com.alumniconnect.service.FundraisingService;
 
@@ -27,12 +28,17 @@ public class FundraisingServiceImpl implements FundraisingService {
 
     @Override
     public void deleteFundraising(int fundId) {
-        fundraisingRepository.deleteById(fundId);
+
+        Fundraising fundraising = fundraisingRepository.findById(fundId)
+                .orElseThrow(() -> new ResourceNotFoundException("Fundraising not found"));
+
+        fundraisingRepository.delete(fundraising);
     }
 
     @Override
     public Fundraising getFundraisingById(int fundId) {
-        return fundraisingRepository.findById(fundId).orElse(null);
+        return fundraisingRepository.findById(fundId)
+                .orElseThrow(() -> new ResourceNotFoundException("Fundraising not found"));
     }
 
     @Override

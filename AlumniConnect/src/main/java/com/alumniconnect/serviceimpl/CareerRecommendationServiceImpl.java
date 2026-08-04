@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.alumniconnect.entity.CareerRecommendation;
+import com.alumniconnect.exception.ResourceNotFoundException;
 import com.alumniconnect.repository.CareerRecommendationRepository;
 import com.alumniconnect.service.CareerRecommendationService;
 
@@ -30,13 +31,18 @@ public class CareerRecommendationServiceImpl implements CareerRecommendationServ
 
     @Override
     public void deleteRecommendation(int careerId) {
-        careerRecommendationRepository.deleteById(careerId);
+
+        CareerRecommendation recommendation = careerRecommendationRepository.findById(careerId)
+                .orElseThrow(() -> new ResourceNotFoundException("Career Recommendation not found"));
+
+        careerRecommendationRepository.delete(recommendation);
     }
 
 
     @Override
     public CareerRecommendation getRecommendationById(int careerId) {
-        return careerRecommendationRepository.findById(careerId).orElse(null);
+        return careerRecommendationRepository.findById(careerId)
+                .orElseThrow(() -> new ResourceNotFoundException("Career Recommendation not found"));
     }
 
 

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.alumniconnect.entity.Event;
+import com.alumniconnect.exception.ResourceNotFoundException;
 import com.alumniconnect.repository.EventRepository;
 import com.alumniconnect.service.EventService;
 
@@ -27,12 +28,17 @@ public class EventServiceImpl implements EventService {
 
     @Override
     public void deleteEvent(int eventId) {
-        eventRepository.deleteById(eventId);
+
+        Event event = eventRepository.findById(eventId)
+                .orElseThrow(() -> new ResourceNotFoundException("Event not found"));
+
+        eventRepository.delete(event);
     }
 
     @Override
     public Event getEventById(int eventId) {
-        return eventRepository.findById(eventId).orElse(null);
+        return eventRepository.findById(eventId)
+                .orElseThrow(() -> new ResourceNotFoundException("Event not found"));
     }
 
     @Override

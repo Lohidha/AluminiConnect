@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.alumniconnect.entity.Alumni;
+import com.alumniconnect.exception.ResourceNotFoundException;
 import com.alumniconnect.repository.AlumniRepository;
 import com.alumniconnect.service.AlumniService;
 
@@ -32,7 +33,8 @@ public class AlumniServiceImpl implements AlumniService {
 
     @Override
     public Alumni getAlumniById(int alumniId) {
-        return alumniRepository.findById(alumniId).orElse(null);
+        return alumniRepository.findById(alumniId)
+                .orElseThrow(() -> new ResourceNotFoundException("Alumni not found"));
     }
 
     @Override

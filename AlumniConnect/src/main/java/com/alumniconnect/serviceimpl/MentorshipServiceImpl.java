@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.alumniconnect.entity.MentorshipRequest;
+import com.alumniconnect.exception.ResourceNotFoundException;
 import com.alumniconnect.repository.MentorshipRequestRepository;
 import com.alumniconnect.service.MentorshipService;
 
@@ -27,12 +28,17 @@ public class MentorshipServiceImpl implements MentorshipService {
 
     @Override
     public void deleteMentorship(int requestId) {
-        mentorshipRepository.deleteById(requestId);
+
+        MentorshipRequest mentorship = mentorshipRepository.findById(requestId)
+                .orElseThrow(() -> new ResourceNotFoundException("Mentorship Request not found"));
+
+        mentorshipRepository.delete(mentorship);
     }
 
     @Override
     public MentorshipRequest getMentorshipById(int requestId) {
-        return mentorshipRepository.findById(requestId).orElse(null);
+        return mentorshipRepository.findById(requestId)
+                .orElseThrow(() -> new ResourceNotFoundException("Mentorship Request not found"));
     }
 
     @Override

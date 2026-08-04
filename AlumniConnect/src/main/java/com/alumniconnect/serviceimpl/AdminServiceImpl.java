@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.alumniconnect.entity.Admin;
+import com.alumniconnect.exception.ResourceNotFoundException;
 import com.alumniconnect.repository.AdminRepository;
 import com.alumniconnect.service.AdminService;
 
@@ -27,12 +28,17 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public void deleteAdmin(int adminId) {
-        adminRepository.deleteById(adminId);
+
+        Admin admin = adminRepository.findById(adminId)
+                .orElseThrow(() -> new ResourceNotFoundException("Admin not found"));
+
+        adminRepository.delete(admin);
     }
 
     @Override
-    public Admin getAdminById(int  adminId) {
-        return adminRepository.findById(adminId).orElse(null);
+    public Admin getAdminById(int adminId) {
+        return adminRepository.findById(adminId)
+                .orElseThrow(() -> new ResourceNotFoundException("Admin not found"));
     }
 
     @Override

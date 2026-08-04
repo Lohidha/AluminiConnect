@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.alumniconnect.entity.Notification;
+import com.alumniconnect.exception.ResourceNotFoundException;
 import com.alumniconnect.repository.NotificationRepository;
 import com.alumniconnect.service.NotificationService;
 
@@ -27,12 +28,17 @@ public class NotificationServiceImpl implements NotificationService {
 
     @Override
     public void deleteNotification(int notificationId) {
-        notificationRepository.deleteById(notificationId);
+
+        Notification notification = notificationRepository.findById(notificationId)
+                .orElseThrow(() -> new ResourceNotFoundException("Notification not found"));
+
+        notificationRepository.delete(notification);
     }
 
     @Override
     public Notification getNotificationById(int notificationId) {
-        return notificationRepository.findById(notificationId).orElse(null);
+        return notificationRepository.findById(notificationId)
+                .orElseThrow(() -> new ResourceNotFoundException("Notification not found"));
     }
 
     @Override

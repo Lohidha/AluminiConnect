@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.alumniconnect.entity.Student;
+import com.alumniconnect.exception.ResourceNotFoundException;
 import com.alumniconnect.repository.StudentRepository;
 import com.alumniconnect.service.StudentService;
 
@@ -27,12 +28,17 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public void deleteStudent(int studentId) {
-        studentRepository.deleteById(studentId);
+
+        Student student = studentRepository.findById(studentId)
+                .orElseThrow(() -> new ResourceNotFoundException("Student not found"));
+
+        studentRepository.delete(student);
     }
 
     @Override
     public Student getStudentById(int studentId) {
-        return studentRepository.findById(studentId).orElse(null);
+        return studentRepository.findById(studentId)
+                .orElseThrow(() -> new ResourceNotFoundException("Student not found"));
     }
 
     @Override
