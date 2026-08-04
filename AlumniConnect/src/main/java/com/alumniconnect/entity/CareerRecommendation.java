@@ -9,7 +9,7 @@ public class CareerRecommendation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "CAREER_ID")
-    private int careerId;
+    private Integer careerId;
 
     @ManyToOne
     @JoinColumn(name = "STUDENT_ID")
@@ -27,7 +27,7 @@ public class CareerRecommendation {
     @Column(name = "MATCH_PERCENTAGE")
     private Double matchPercentage;
 
-	public CareerRecommendation(int careerId, Student student, String recommendedRole, String company,
+	public CareerRecommendation(Integer careerId, Student student, String recommendedRole, String company,
 			String requiredSkills, Double matchPercentage) {
 		super();
 		this.careerId = careerId;
@@ -38,11 +38,11 @@ public class CareerRecommendation {
 		this.matchPercentage = matchPercentage;
 	}
 
-	public int getCareerId() {
+	public Integer getCareerId() {
 		return careerId;
 	}
 
-	public void setCareerId(int careerId) {
+	public void setCareerId(Integer careerId) {
 		this.careerId = careerId;
 	}
 
@@ -80,7 +80,7 @@ public class CareerRecommendation {
 
 	public Double getMatchPercentage() {
 		return matchPercentage;
-	}
+	} 
 
 	public void setMatchPercentage(Double matchPercentage) {
 		this.matchPercentage = matchPercentage;

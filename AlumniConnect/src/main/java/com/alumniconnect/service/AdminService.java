@@ -10,9 +10,9 @@ public interface AdminService {
 
     Admin updateAdmin(Admin admin);
 
-    void deleteAdmin(int adminId);
+    void deleteAdmin(Integer adminId);
 
-    Admin getAdminById(int adminId);
+    Admin getAdminById(Integer adminId);
 
     List<Admin> getAllAdmins();
 

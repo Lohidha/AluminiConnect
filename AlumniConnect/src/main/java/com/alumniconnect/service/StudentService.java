@@ -10,9 +10,9 @@ public interface StudentService {
 
     Student updateStudent(Student student);
 
-    void deleteStudent(int studentId);
+    void deleteStudent(Integer studentId);
 
-    Student getStudentById(int studentId);
+    Student getStudentById(Integer studentId);
 
     List<Student> getAllStudents();
     Student getStudentByEmail(String email);

@@ -10,7 +10,7 @@ public class Event {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "EVENT_ID")
-    private int eventId;
+    private Integer eventId;
 
     @Column(name = "TITLE")
     private String title;
@@ -45,7 +45,7 @@ public class Event {
     private Date registrationDeadline;
 
     @Column(name = "MAX_PARTICIPANTS")
-    private int maxParticipants;
+    private Integer maxParticipants;
 
     @Column(name = "STATUS")
     private String status;
@@ -53,9 +53,9 @@ public class Event {
     public Event() {
     }
 
-    public Event(int eventId, String title, String category, String description, Date eventDate,
+    public Event(Integer eventId, String title, String category, String description, Date eventDate,
                  String startTime, String endTime, String venue, String eventMode,
-                 String organizer, Date registrationDeadline, int maxParticipants,
+                 String organizer, Date registrationDeadline, Integer maxParticipants,
                  String status) {
         this.eventId = eventId;
         this.title = title;
@@ -72,11 +72,11 @@ public class Event {
         this.status = status;
     }
 
-    public int getEventId() {
+    public Integer getEventId() {
         return eventId;
     }
 
-    public void setEventId(int eventId) {
+    public void setEventId(Integer eventId) {
         this.eventId = eventId;
     }
 
@@ -160,11 +160,11 @@ public class Event {
         this.registrationDeadline = registrationDeadline;
     }
 
-    public int getMaxParticipants() {
+    public Integer getMaxParticipants() {
         return maxParticipants;
     }
 
-    public void setMaxParticipants(int maxParticipants) {
+    public void setMaxParticipants(Integer maxParticipants) {
         this.maxParticipants = maxParticipants;
     }
 

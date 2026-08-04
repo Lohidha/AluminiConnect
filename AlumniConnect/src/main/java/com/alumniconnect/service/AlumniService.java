@@ -10,9 +10,9 @@ public interface AlumniService {
 
     Alumni updateAlumni(Alumni alumni);
 
-    void deleteAlumni(int alumniId);
+    void deleteAlumni(Integer alumniId);
 
-    Alumni getAlumniById(int alumniId);
+    Alumni getAlumniById(Integer alumniId);
 
     List<Alumni> getAllAlumni();
 

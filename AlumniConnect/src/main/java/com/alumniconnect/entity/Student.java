@@ -9,7 +9,7 @@ public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "STUDENT_ID")
-    private int studentId;
+    private Integer studentId;
 
     @Column(name = "REGISTER_NO", nullable = false, unique = true)
     private String registerNo;
@@ -30,7 +30,7 @@ public class Student {
     private String course;
 
     @Column(name = "YEAR_OF_STUDY")
-    private int yearOfStudy;
+    private Integer yearOfStudy;
 
     @Column(name = "BATCH")
     private String batch;
@@ -50,8 +50,8 @@ public class Student {
     public Student() {
     }
 
-    public Student(int studentId, String registerNo, String name, String email, String mobile,
-                   String department, String course, int yearOfStudy, String batch,
+    public Student(Integer studentId, String registerNo, String name, String email, String mobile,
+                   String department, String course, Integer yearOfStudy, String batch,
                    String skills, String careerGoal, String password, String profilePhoto) {
         this.studentId = studentId;
         this.registerNo = registerNo;
@@ -68,11 +68,11 @@ public class Student {
         this.profilePhoto = profilePhoto;
     }
 
-    public int getStudentId() {
+    public Integer getStudentId() {
         return studentId;
     }
 
-    public void setStudentId(int studentId) {
+    public void setStudentId(Integer studentId) {
         this.studentId = studentId;
     }
 
@@ -124,11 +124,11 @@ public class Student {
         this.course = course;
     }
 
-    public int getYearOfStudy() {
+    public Integer getYearOfStudy() {
         return yearOfStudy;
     }
 
-    public void setYearOfStudy(int yearOfStudy) {
+    public void setYearOfStudy(Integer yearOfStudy) {
         this.yearOfStudy = yearOfStudy;
     }
 

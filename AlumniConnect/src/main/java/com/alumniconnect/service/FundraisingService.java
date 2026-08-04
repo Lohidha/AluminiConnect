@@ -10,9 +10,9 @@ public interface FundraisingService {
 
     Fundraising updateFundraising(Fundraising fundraising);
 
-    void deleteFundraising(int fundId);
+    void deleteFundraising(Integer fundId);
 
-    Fundraising getFundraisingById(int fundId);
+    Fundraising getFundraisingById(Integer fundId);
 
     List<Fundraising> getAllFundraisings();
 

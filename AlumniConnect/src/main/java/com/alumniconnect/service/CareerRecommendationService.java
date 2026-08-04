@@ -10,9 +10,9 @@ public interface CareerRecommendationService {
 
     CareerRecommendation updateRecommendation(CareerRecommendation recommendation);
 
-    void deleteRecommendation(int careerId);
+    void deleteRecommendation(Integer careerId);
 
-    CareerRecommendation getRecommendationById(int careerId);
+    CareerRecommendation getRecommendationById(Integer careerId);
 
     List<CareerRecommendation> getAllRecommendations();
 

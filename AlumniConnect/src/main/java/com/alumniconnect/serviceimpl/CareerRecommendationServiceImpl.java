@@ -30,7 +30,7 @@ public class CareerRecommendationServiceImpl implements CareerRecommendationServ
 
 
     @Override
-    public void deleteRecommendation(int careerId) {
+    public void deleteRecommendation(Integer careerId) {
 
         CareerRecommendation recommendation = careerRecommendationRepository.findById(careerId)
                 .orElseThrow(() -> new ResourceNotFoundException("Career Recommendation not found"));
@@ -40,7 +40,7 @@ public class CareerRecommendationServiceImpl implements CareerRecommendationServ
 
 
     @Override
-    public CareerRecommendation getRecommendationById(int careerId) {
+    public CareerRecommendation getRecommendationById(Integer careerId) {
         return careerRecommendationRepository.findById(careerId)
                 .orElseThrow(() -> new ResourceNotFoundException("Career Recommendation not found"));
     }

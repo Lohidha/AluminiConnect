@@ -27,7 +27,7 @@ public class FundraisingServiceImpl implements FundraisingService {
     }
 
     @Override
-    public void deleteFundraising(int fundId) {
+    public void deleteFundraising(Integer fundId) {
 
         Fundraising fundraising = fundraisingRepository.findById(fundId)
                 .orElseThrow(() -> new ResourceNotFoundException("Fundraising not found"));
@@ -36,7 +36,7 @@ public class FundraisingServiceImpl implements FundraisingService {
     }
 
     @Override
-    public Fundraising getFundraisingById(int fundId) {
+    public Fundraising getFundraisingById(Integer fundId) {
         return fundraisingRepository.findById(fundId)
                 .orElseThrow(() -> new ResourceNotFoundException("Fundraising not found"));
     }

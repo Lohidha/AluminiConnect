@@ -27,7 +27,7 @@ public class MentorshipServiceImpl implements MentorshipService {
     }
 
     @Override
-    public void deleteMentorship(int requestId) {
+    public void deleteMentorship(Integer requestId) {
 
         MentorshipRequest mentorship = mentorshipRepository.findById(requestId)
                 .orElseThrow(() -> new ResourceNotFoundException("Mentorship Request not found"));
@@ -36,7 +36,7 @@ public class MentorshipServiceImpl implements MentorshipService {
     }
 
     @Override
-    public MentorshipRequest getMentorshipById(int requestId) {
+    public MentorshipRequest getMentorshipById(Integer requestId) {
         return mentorshipRepository.findById(requestId)
                 .orElseThrow(() -> new ResourceNotFoundException("Mentorship Request not found"));
     }

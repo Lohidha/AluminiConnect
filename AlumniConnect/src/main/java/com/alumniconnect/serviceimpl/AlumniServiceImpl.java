@@ -27,7 +27,7 @@ public class AlumniServiceImpl implements AlumniService {
     }
 
     @Override
-    public void deleteAlumni(int alumniId) {
+    public void deleteAlumni(Integer alumniId) {
 
         Alumni alumni = alumniRepository.findById(alumniId)
                 .orElseThrow(() -> new ResourceNotFoundException("Alumni not found"));
@@ -36,7 +36,7 @@ public class AlumniServiceImpl implements AlumniService {
     }
 
     @Override
-    public Alumni getAlumniById(int alumniId) {
+    public Alumni getAlumniById(Integer alumniId) {
         return alumniRepository.findById(alumniId)
                 .orElseThrow(() -> new ResourceNotFoundException("Alumni not found"));
     }

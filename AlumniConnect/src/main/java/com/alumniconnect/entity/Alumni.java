@@ -9,7 +9,7 @@ public class Alumni {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ALUMNI_ID")
-    private int alumniId;
+    private Integer alumniId;
 
     @Column(name = "REGISTER_NO", nullable = false, unique = true)
     private String registerNo;
@@ -54,7 +54,7 @@ public class Alumni {
     private String availableForMentorship;
 
     
-    public Alumni(int alumniId, String registerNo, String name, String email, String mobile, String department,
+    public Alumni(Integer alumniId, String registerNo, String name, String email, String mobile, String department,
 			String batch, String currentCompany, String designation, Integer experience, String location, String skills,
 			String linkedin, String password, String availableForMentorship) {
 		super();
@@ -76,12 +76,12 @@ public class Alumni {
 	}
 
 
-	public int getAlumniId() {
+	public Integer getAlumniId() {
 		return alumniId;
 	}
 
 
-	public void setAlumniId(int alumniId) {
+	public void setAlumniId(Integer alumniId) {
 		this.alumniId = alumniId;
 	}
 

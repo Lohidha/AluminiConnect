@@ -10,9 +10,9 @@ public interface EventService {
 
     Event updateEvent(Event event);
 
-    void deleteEvent(int eventId);
+    void deleteEvent(Integer eventId);
 
-    Event getEventById(int eventId);
+    Event getEventById(Integer eventId);
 
     List<Event> getAllEvents();
 
