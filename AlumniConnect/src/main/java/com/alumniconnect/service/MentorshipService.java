@@ -10,9 +10,9 @@ public interface MentorshipService {
 
     MentorshipRequest updateMentorship(MentorshipRequest mentorship);
 
-    void deleteMentorship(Integer requestId);
+    void deleteMentorship(int requestId);
 
-    MentorshipRequest getMentorshipById(Integer requestId);
+    MentorshipRequest getMentorshipById(int requestId);
 
     List<MentorshipRequest> getAllMentorships();
 
