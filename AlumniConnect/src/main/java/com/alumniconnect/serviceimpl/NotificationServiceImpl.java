@@ -26,12 +26,12 @@ public class NotificationServiceImpl implements NotificationService {
     }
 
     @Override
-    public void deleteNotification(Integer notificationId) {
+    public void deleteNotification(int notificationId) {
         notificationRepository.deleteById(notificationId);
     }
 
     @Override
-    public Notification getNotificationById(Integer notificationId) {
+    public Notification getNotificationById(int notificationId) {
         return notificationRepository.findById(notificationId).orElse(null);
     }
 

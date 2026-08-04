@@ -26,12 +26,12 @@ public class AlumniServiceImpl implements AlumniService {
     }
 
     @Override
-    public void deleteAlumni(Integer alumniId) {
+    public void deleteAlumni(int alumniId) {
         alumniRepository.deleteById(alumniId);
     }
 
     @Override
-    public Alumni getAlumniById(Integer alumniId) {
+    public Alumni getAlumniById(int alumniId) {
         return alumniRepository.findById(alumniId).orElse(null);
     }
 

@@ -26,12 +26,12 @@ public class MentorshipServiceImpl implements MentorshipService {
     }
 
     @Override
-    public void deleteMentorship(Integer requestId) {
+    public void deleteMentorship(int requestId) {
         mentorshipRepository.deleteById(requestId);
     }
 
     @Override
-    public MentorshipRequest getMentorshipById(Integer requestId) {
+    public MentorshipRequest getMentorshipById(int requestId) {
         return mentorshipRepository.findById(requestId).orElse(null);
     }
 

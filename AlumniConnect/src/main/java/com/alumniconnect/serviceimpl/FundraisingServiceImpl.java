@@ -26,12 +26,12 @@ public class FundraisingServiceImpl implements FundraisingService {
     }
 
     @Override
-    public void deleteFundraising(Integer fundId) {
+    public void deleteFundraising(int fundId) {
         fundraisingRepository.deleteById(fundId);
     }
 
     @Override
-    public Fundraising getFundraisingById(Integer fundId) {
+    public Fundraising getFundraisingById(int fundId) {
         return fundraisingRepository.findById(fundId).orElse(null);
     }
 
