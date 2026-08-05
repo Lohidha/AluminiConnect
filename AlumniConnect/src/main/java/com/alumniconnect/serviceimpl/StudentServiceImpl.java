@@ -54,7 +54,7 @@ public class StudentServiceImpl implements StudentService {
 
         Student student = studentRepository.findByEmail(email);
 
-        if(student == null) {
+        if(student == null) { 
             throw new RuntimeException("Invalid Email");
         }
 
