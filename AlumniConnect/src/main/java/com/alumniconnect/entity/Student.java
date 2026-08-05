@@ -46,27 +46,53 @@ public class Student {
 
     @Column(name = "PROFILE_PHOTO")
     private String profilePhoto;
+    @Column(name = "LINKEDIN")
+    private String linkedin;
+
+    @Column(name = "GITHUB")
+    private String github;
+
+    @Column(name = "PORTFOLIO")
+    private String portfolio;
+
+    @Column(name = "CGPA")
+    private Double cgpa;
+
+    @Column(name = "RESUME_NAME")
+    private String resumeName;
+
+    @Column(name = "RESUME_URL")
+    private String resumeUrl;
 
     public Student() {
     }
 
     public Student(Integer studentId, String registerNo, String name, String email, String mobile,
-                   String department, String course, Integer yearOfStudy, String batch,
-                   String skills, String careerGoal, String password, String profilePhoto) {
-        this.studentId = studentId;
-        this.registerNo = registerNo;
-        this.name = name;
-        this.email = email;
-        this.mobile = mobile;
-        this.department = department;
-        this.course = course;
-        this.yearOfStudy = yearOfStudy;
-        this.batch = batch;
-        this.skills = skills;
-        this.careerGoal = careerGoal;
-        this.password = password;
-        this.profilePhoto = profilePhoto;
-    }
+            String department, String course, Integer yearOfStudy, String batch,
+            String skills, String careerGoal, String password, String profilePhoto,
+            String linkedin, String github, String portfolio,
+            Double cgpa, String resumeName, String resumeUrl) {
+
+ this.studentId = studentId;
+ this.registerNo = registerNo;
+ this.name = name;
+ this.email = email;
+ this.mobile = mobile;
+ this.department = department;
+ this.course = course;
+ this.yearOfStudy = yearOfStudy;
+ this.batch = batch;
+ this.skills = skills;
+ this.careerGoal = careerGoal;
+ this.password = password;
+ this.profilePhoto = profilePhoto;
+ this.linkedin = linkedin;
+ this.github = github;
+ this.portfolio = portfolio;
+ this.cgpa = cgpa;
+ this.resumeName = resumeName;
+ this.resumeUrl = resumeUrl;
+}
 
     public Integer getStudentId() {
         return studentId;
@@ -170,5 +196,52 @@ public class Student {
 
     public void setProfilePhoto(String profilePhoto) {
         this.profilePhoto = profilePhoto;
+    }
+    public String getLinkedin() {
+        return linkedin;
+    }
+
+    public void setLinkedin(String linkedin) {
+        this.linkedin = linkedin;
+    }
+
+    public String getGithub() {
+        return github;
+    }
+
+    public void setGithub(String github) {
+        this.github = github;
+    }
+
+    public String getPortfolio() {
+        return portfolio;
+    }
+
+    public void setPortfolio(String portfolio) {
+        this.portfolio = portfolio;
+    }
+
+    public Double getCgpa() {
+        return cgpa;
+    }
+
+    public void setCgpa(Double cgpa) {
+        this.cgpa = cgpa;
+    }
+
+    public String getResumeName() {
+        return resumeName;
+    }
+
+    public void setResumeName(String resumeName) {
+        this.resumeName = resumeName;
+    }
+
+    public String getResumeUrl() {
+        return resumeUrl;
+    }
+
+    public void setResumeUrl(String resumeUrl) {
+        this.resumeUrl = resumeUrl;
     }
 }
