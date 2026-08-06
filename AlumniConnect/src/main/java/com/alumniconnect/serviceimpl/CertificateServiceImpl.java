@@ -1,5 +1,6 @@
 package com.alumniconnect.serviceimpl;
-
+import com.alumniconnect.repository.StudentRepository;
+import com.alumniconnect.entity.Student;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,14 +16,31 @@ public class CertificateServiceImpl implements CertificateService {
 
     @Autowired
     private CertificateRepository certificateRepository;
+    @Autowired
+    private StudentRepository studentRepository;
 
     @Override
     public Certificate addCertificate(Certificate certificate) {
+
+        Integer studentId = certificate.getStudent().getStudentId();
+
+        Student student = studentRepository.findById(studentId)
+                .orElseThrow(() -> new ResourceNotFoundException("Student not found"));
+
+        certificate.setStudent(student);
+
         return certificateRepository.save(certificate);
     }
-
     @Override
     public Certificate updateCertificate(Certificate certificate) {
+
+        Integer studentId = certificate.getStudent().getStudentId();
+
+        Student student = studentRepository.findById(studentId)
+                .orElseThrow(() -> new ResourceNotFoundException("Student not found"));
+
+        certificate.setStudent(student);
+
         return certificateRepository.save(certificate);
     }
 
