@@ -20,27 +20,19 @@ public class StudentServiceImpl implements StudentService {
     public Student addStudent(Student student) {
         return studentRepository.save(student);
     }
-
     @Override
     public Student updateStudent(Student student) {
         return studentRepository.save(student);
     }
-
     @Override
     public void deleteStudent(Integer studentId) {
-
-        Student student = studentRepository.findById(studentId)
-                .orElseThrow(() -> new ResourceNotFoundException("Student not found"));
-
+        Student student = studentRepository.findById(studentId) .orElseThrow(() -> new ResourceNotFoundException("Student not found"));
         studentRepository.delete(student);
     }
-
     @Override
     public Student getStudentById(Integer studentId) {
-        return studentRepository.findById(studentId)
-                .orElseThrow(() -> new ResourceNotFoundException("Student not found"));
+        return studentRepository.findById(studentId).orElseThrow(() -> new ResourceNotFoundException("Student not found"));
     }
-
     @Override
     public List<Student> getAllStudents() {
         return studentRepository.findAll();
@@ -51,17 +43,13 @@ public class StudentServiceImpl implements StudentService {
     }
     @Override
     public Student login(String email, String password) {
-
         Student student = studentRepository.findByEmail(email);
-
         if(student == null) { 
             throw new RuntimeException("Invalid Email");
         }
-
         if(!student.getPassword().equals(password)) {
             throw new RuntimeException("Invalid Password");
         }
-
         return student;
     }
 }

@@ -20,27 +20,20 @@ public class NotificationServiceImpl implements NotificationService {
     public Notification addNotification(Notification notification) {
         return notificationRepository.save(notification);
     }
-
     @Override
     public Notification updateNotification(Notification notification) {
         return notificationRepository.save(notification);
     }
-
     @Override
     public void deleteNotification(Integer notificationId) {
-
-        Notification notification = notificationRepository.findById(notificationId)
-                .orElseThrow(() -> new ResourceNotFoundException("Notification not found"));
-
+        Notification notification = notificationRepository.findById(notificationId).orElseThrow(() -> new ResourceNotFoundException("Notification not found"));
         notificationRepository.delete(notification);
     }
-
     @Override
     public Notification getNotificationById(Integer notificationId) {
         return notificationRepository.findById(notificationId)
                 .orElseThrow(() -> new ResourceNotFoundException("Notification not found"));
     }
-
     @Override
     public List<Notification> getAllNotifications() {
         return notificationRepository.findAll();

@@ -20,27 +20,19 @@ public class MentorshipServiceImpl implements MentorshipService {
     public MentorshipRequest addMentorship(MentorshipRequest mentorship) {
         return mentorshipRepository.save(mentorship);
     }
-
     @Override
     public MentorshipRequest updateMentorship(MentorshipRequest mentorship) {
         return mentorshipRepository.save(mentorship);
     }
-
     @Override
     public void deleteMentorship(Integer requestId) {
-
-        MentorshipRequest mentorship = mentorshipRepository.findById(requestId)
-                .orElseThrow(() -> new ResourceNotFoundException("Mentorship Request not found"));
-
+        MentorshipRequest mentorship = mentorshipRepository.findById(requestId).orElseThrow(() -> new ResourceNotFoundException("Mentorship Request not found"));
         mentorshipRepository.delete(mentorship);
     }
-
     @Override
     public MentorshipRequest getMentorshipById(Integer requestId) {
-        return mentorshipRepository.findById(requestId)
-                .orElseThrow(() -> new ResourceNotFoundException("Mentorship Request not found"));
+        return mentorshipRepository.findById(requestId).orElseThrow(() -> new ResourceNotFoundException("Mentorship Request not found"));
     }
-
     @Override
     public List<MentorshipRequest> getAllMentorships() {
         return mentorshipRepository.findAll();

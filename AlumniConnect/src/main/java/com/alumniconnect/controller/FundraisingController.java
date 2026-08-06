@@ -20,26 +20,21 @@ public class FundraisingController {
     public Fundraising addFundraising(@RequestBody Fundraising fundraising) {
         return fundraisingService.addFundraising(fundraising);
     }
-
     @PutMapping("/update")
     public Fundraising updateFundraising(@RequestBody Fundraising fundraising) {
         return fundraisingService.updateFundraising(fundraising);
     }
-
     @DeleteMapping("/delete/{id}")
     public String deleteFundraising(@PathVariable Integer id) {
         fundraisingService.deleteFundraising(id);
         return "Fundraising deleted successfully";
     }
-
     @GetMapping("/get/{id}")
     public Fundraising getFundraisingById(@PathVariable Integer id) {
         return fundraisingService.getFundraisingById(id);
     }
-
     @GetMapping("/getall")
     public List<Fundraising> getAllFundraisings() {
         return fundraisingService.getAllFundraisings();
     }
-
 }
