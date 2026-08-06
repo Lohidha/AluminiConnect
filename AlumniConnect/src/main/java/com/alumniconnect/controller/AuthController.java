@@ -6,48 +6,47 @@ import org.springframework.web.bind.annotation.*;
 import com.alumniconnect.entity.Admin;
 import com.alumniconnect.entity.Alumni;
 import com.alumniconnect.entity.LoginRequest;
+import com.alumniconnect.entity.LoginResponse;
 import com.alumniconnect.entity.Student;
-import com.alumniconnect.service.AdminService;
-import com.alumniconnect.service.AlumniService;
-import com.alumniconnect.service.StudentService;
+import com.alumniconnect.repository.AdminRepository;
+import com.alumniconnect.repository.AlumniRepository;
+import com.alumniconnect.repository.StudentRepository;
 
 @RestController
 @RequestMapping("/auth")
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins="*")
 public class AuthController {
 
     @Autowired
-    private StudentService studentService;
-    @Autowired
-    private AlumniService alumniService;
-    @Autowired
-    private AdminService adminService;
+    private StudentRepository studentRepository;
 
-    @PostMapping("/student/register")
-    public Student registerStudent(@RequestBody Student student) {
-        return studentService.addStudent(student);
-    }
-    @PostMapping("/alumni/register")
-    public Alumni registerAlumni(@RequestBody Alumni alumni) {
-        System.out.println(alumni.getName());
-        System.out.println(alumni.getEmail());
-        return alumniService.addAlumni(alumni);
-    }
+    @Autowired
+    private AlumniRepository alumniRepository;
+
+    @Autowired
+    private AdminRepository adminRepository;
+
     @PostMapping("/login")
-    public String login(@RequestBody LoginRequest loginRequest) {
-        Student student = studentService.getStudentByEmail(loginRequest.getEmail());
-        if (student != null && student.getPassword().equals(loginRequest.getPassword())) {
-            return "STUDENT";
-        }
-        Alumni alumni = alumniService.getAlumniByEmail(loginRequest.getEmail());
-        if (alumni != null && alumni.getPassword().equals(loginRequest.getPassword())) {
-            return "ALUMNI";
-        }
-        Admin admin = adminService.getAdminByEmail(loginRequest.getEmail());
-        if (admin != null && admin.getPassword().equals(loginRequest.getPassword())) {
-            return "ADMIN";
-        }
-        return "INVALID EMAIL OR PASSWORD";
-    }
+    public LoginResponse login(@RequestBody LoginRequest request) {
 
+        Student student = studentRepository.findByEmail(request.getEmail());
+
+        if (student != null && student.getPassword().equals(request.getPassword())) {
+            return new LoginResponse("student", student);
+        }
+
+        Alumni alumni = alumniRepository.findByEmail(request.getEmail());
+
+        if (alumni != null && alumni.getPassword().equals(request.getPassword())) {
+            return new LoginResponse("alumni", alumni);
+        }
+
+        Admin admin = adminRepository.findByEmail(request.getEmail());
+
+        if (admin != null && admin.getPassword().equals(request.getPassword())) {
+            return new LoginResponse("admin", admin);
+        }
+
+        throw new RuntimeException("Invalid Email or Password");
+    }
 }
